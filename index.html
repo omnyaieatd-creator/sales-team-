@@ -1,426 +1,448 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.1">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6d6d6d; -webkit-text-stroke: #6d6d6d}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0000ff; -webkit-text-stroke: #0000ff}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6b0001; -webkit-text-stroke: #6b0001}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #fb0007; -webkit-text-stroke: #fb0007}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #093c94; -webkit-text-stroke: #093c94}
-    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
-    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #18702b; -webkit-text-stroke: #18702b}
-    span.s1 {font-kerning: none; background-color: #ecf1f7}
-    span.s2 {font-kerning: none; color: #fb0007; background-color: #ecf1f7; -webkit-text-stroke: 0px #fb0007}
-    span.s3 {font-kerning: none; color: #2a2a2a; background-color: #ecf1f7; -webkit-text-stroke: 0px #2a2a2a}
-    span.s4 {font-kerning: none; color: #6b0001; background-color: #ecf1f7; -webkit-text-stroke: 0px #6b0001}
-    span.s5 {font-kerning: none; color: #000000; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s6 {font-kerning: none; color: #0000ff; background-color: #ecf1f7; -webkit-text-stroke: 0px #0000ff}
-    span.s7 {font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s8 {font-kerning: none; color: #093c94; background-color: #ecf1f7; -webkit-text-stroke: 0px #093c94}
-    span.s9 {font-kerning: none; color: #137646; background-color: #ecf1f7; -webkit-text-stroke: 0px #137646}
-    span.s10 {font-kerning: none}
-    span.s11 {font-kerning: none; color: #4d5055; background-color: #ecf1f7; -webkit-text-stroke: 0px #4d5055}
-    span.s12 {font-kerning: none; color: #6f0ec3; background-color: #ecf1f7; -webkit-text-stroke: 0px #6f0ec3}
-    span.s13 {font-kerning: none; color: #a4450b; background-color: #ecf1f7; -webkit-text-stroke: 0px #a4450b}
-    span.s14 {font-kerning: none; color: #bf1c25; background-color: #ecf1f7; -webkit-text-stroke: 0px #bf1c25}
-    span.s15 {font-kerning: none; color: #0e6e6d; background-color: #ecf1f7; -webkit-text-stroke: 0px #0e6e6d}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منظومة الإغلاق البيعي والأرباح الاستراتيجية - PROFIT MAX</title>
+    <!-- CSS Dependencies -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1d4ed8;
+            --secondary: #2563eb;
+            --success: #166534;
+            --bg-main: #f8fafc;
+        }
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            background-color: var(--bg-main);
+            scroll-behavior: smooth;
+        }
+        .chart-container { 
+            position: relative; 
+            width: 100%; 
+            max-width: 600px; 
+            margin: 0 auto;
+            height: 350px; 
+        } 
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover { 
+            transform: translateY(-8px); 
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .active-card { 
+            border: 2px solid var(--primary); 
+            background-color: #eff6ff;
+            transform: scale(1.02);
+        }
+        .sales-gradient { 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
+        }
+        .target-badge { 
+            background: #dcfce7; 
+            color: var(--success); 
+            border: 1px solid #bbf7d0; 
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
 </head>
-<body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE</span><span class="s2"> html</span><span class="s1">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">html</span><span class="s5"> </span><span class="s2">lang</span><span class="s3">=</span><span class="s1">"ar"</span><span class="s5"> </span><span class="s2">dir</span><span class="s3">=</span><span class="s1">"rtl"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s1">charset</span><span class="s3">=</span><span class="s6">"UTF-8"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">meta</span><span class="s5"> </span><span class="s2">name</span><span class="s3">=</span><span class="s1">"viewport"</span><span class="s5"> </span><span class="s2">content</span><span class="s3">=</span><span class="s1">"width=device-width, initial-scale=1.0"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">title</span><span class="s3">&gt;</span><span class="s1">منظومة الإغلاق البيعي والأرباح الاستراتيجية</span><span class="s3">&lt;/</span><span class="s4">title</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.tailwindcss.com"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">script</span><span class="s5"> </span><span class="s2">src</span><span class="s3">=</span><span class="s1">"https://cdn.jsdelivr.net/npm/chart.js"</span><span class="s3">&gt;&lt;/</span><span class="s4">script</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">link</span><span class="s5"> </span><span class="s2">href</span><span class="s3">=</span><span class="s1">"https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&amp;display=swap"</span><span class="s5"> </span><span class="s2">rel</span><span class="s3">=</span><span class="s1">"stylesheet"</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s4">body</span><span class="s5"> { </span><span class="s1">font-family:</span><span class="s5"> </span><span class="s7">'Tajawal'</span><span class="s5">, </span><span class="s8">sans-serif</span><span class="s5">; </span><span class="s1">background-color:</span><span class="s5"> </span><span class="s8">#f8fafc</span><span class="s5">; }</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">.chart-container</span><span class="s5"> {<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">position:</span><span class="s1"> </span><span class="s8">relative</span><span class="s1">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">width:</span><span class="s1"> </span><span class="s9">100%</span><span class="s1">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-width:</span><span class="s1"> </span><span class="s9">600px</span><span class="s1">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-left:</span><span class="s1"> </span><span class="s8">auto</span><span class="s1">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">margin-right:</span><span class="s1"> </span><span class="s8">auto</span><span class="s1">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">height:</span><span class="s1"> </span><span class="s9">300px</span><span class="s1">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s2">max-height:</span><span class="s1"> </span><span class="s9">400px</span><span class="s1">;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>@</span><span class="s4">media</span><span class="s1"> (</span><span class="s4">min-width:</span><span class="s1"> 768</span><span class="s4">px</span><span class="s1">) {<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>.chart-container { </span><span class="s2">height:</span><span class="s1"> </span><span class="s9">350px</span><span class="s1">; }<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s4">.card-hover:hover</span><span class="s5"> { </span><span class="s2">transform:</span><span class="s5"> </span><span class="s1">translateY(</span><span class="s9">-5px</span><span class="s1">)</span><span class="s5">; </span><span class="s2">transition:</span><span class="s5"> </span><span class="s1">transform</span><span class="s5"> </span><span class="s9">0.3s</span><span class="s5"> </span><span class="s1">ease</span><span class="s5">; }</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s4">.active-card</span><span class="s5"> { </span><span class="s1">border:</span><span class="s5"> </span><span class="s9">2px</span><span class="s5"> </span><span class="s8">solid</span><span class="s5"> </span><span class="s8">#1d4ed8</span><span class="s5">; </span><span class="s1">background-color:</span><span class="s5"> </span><span class="s8">#eff6ff</span><span class="s5">; }</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s4">.sales-badge</span><span class="s5"> { </span><span class="s2">background:</span><span class="s5"> </span><span class="s1">linear-gradient(</span><span class="s9">90deg</span><span class="s5">, </span><span class="s1">#1d4ed8</span><span class="s5">, </span><span class="s1">#2563eb)</span><span class="s5">; </span><span class="s2">color:</span><span class="s5"> </span><span class="s1">white</span><span class="s5">; }</span></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s4">.target-badge</span><span class="s5"> { </span><span class="s2">background:</span><span class="s5"> </span><span class="s1">#dcfce7</span><span class="s5">; </span><span class="s2">color:</span><span class="s5"> </span><span class="s1">#166534</span><span class="s5">; </span><span class="s2">border:</span><span class="s5"> </span><span class="s9">1px</span><span class="s5"> </span><span class="s1">solid</span><span class="s5"> </span><span class="s1">#bbf7d0</span><span class="s5">; }</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">style</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">head</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s3">&lt;</span><span class="s4">body</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-800"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Navbar --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">nav</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white shadow-md border-b border-blue-100 sticky top-0 z-50"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex justify-between h-16 items-center"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex items-center"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-black text-blue-700 tracking-tight"</span><span class="s3">&gt;</span><span class="s5">إدارة التدفقات والأرباح </span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-400 text-sm font-normal"</span><span class="s3">&gt;</span><span class="s5">| PROFIT MAX</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"hidden md:flex space-x-6 space-x-reverse"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"scrollToSection('team-section')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-bold"</span><span class="s3">&gt;</span><span class="s5">محركات البيع</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"scrollToSection('analytics-section')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-bold"</span><span class="s3">&gt;</span><span class="s5">مؤشرات الأداء</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">button</span><span class="s5"> </span><span class="s2">onclick</span><span class="s3">=</span><span class="s1">"scrollToSection('contact-section')"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-600 hover:text-blue-700 px-3 py-2 rounded-md text-sm font-bold"</span><span class="s3">&gt;</span><span class="s5">قنوات الاتصال</span><span class="s3">&lt;/</span><span class="s4">button</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s4">nav</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">&lt;!-- Hero --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">header</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white overflow-hidden relative border-b border-slate-100"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-7xl mx-auto py-20 px-4 sm:px-6 lg:px-8 text-center relative z-10"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">h1</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-5xl font-black text-slate-900 sm:text-6xl lg:text-7xl mb-6 leading-tight"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>منظومة </span><span class="s3">&lt;</span><span class="s4">span</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-blue-600"</span><span class="s3">&gt;</span><span class="s1">الإغلاق البيعي</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span><span class="s1"> والأرباح الاستراتيجية</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">h1</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-5 max-w-3xl mx-auto text-xl text-slate-600 leading-relaxed"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>تحويل كل نقطة تماس مع العميل إلى فرصة استثمارية. رؤية 2026 لتعظيم العائد من خلال توزيع الأدوار القائم على النتائج المالية المباشرة.</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-10 flex justify-center gap-4"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"inline-flex items-center px-8 py-4 rounded-2xl text-xl font-bold sales-badge shadow-lg shadow-blue-200"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>معدل الأداء المستهدف: +85% تحويل بيعي</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">header</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">main</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-20"</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Team Section --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">section</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"team-section"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col md:flex-row justify-between items-end mb-12 border-b border-slate-200 pb-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"max-w-2xl"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-4xl font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s1">هيكل القوة الضاربة للمبيعات</span><span class="s3">&lt;/</span><span class="s4">h2</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"mt-3 text-slate-600 text-lg"</span><span class="s3">&gt;</span><span class="s1">توزيع المهام بناءً على مستهدفات الربح (Targets).</span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 lg:grid-cols-3 gap-12"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"lg:col-span-1 space-y-6"</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"cards-container"</span><span class="s3">&gt;</span></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">&lt;!-- Cards will be rendered here via JS --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"lg:col-span-2"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"detail-panel"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-3xl shadow-2xl border border-slate-100 overflow-hidden transition-all duration-300"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"p-10 bg-gradient-to-br from-white to-slate-50"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col md:flex-row justify-between items-start mb-10 gap-6"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"flex-1"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">h3</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s6">"detail-name"</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-4xl font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s1">اختر مسؤولاً</span><span class="s3">&lt;/</span><span class="s4">h3</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-wrap gap-2 mt-3 items-center"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"detail-role"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-blue-600 font-bold text-lg italic"</span><span class="s3">&gt;</span><span class="s5">-</span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"detail-target"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"target-badge px-4 py-1 rounded-full text-sm font-black flex items-center gap-2 border border-green-200"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                            </span></span><span class="s3">&lt;</span><span class="s4">svg</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-4 h-4"</span><span class="s5"> </span><span class="s2">fill</span><span class="s3">=</span><span class="s1">"currentColor"</span><span class="s5"> </span><span class="s2">viewBox</span><span class="s3">=</span><span class="s1">"0 0 20 20"</span><span class="s3">&gt;&lt;</span><span class="s4">path</span><span class="s5"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"</span><span class="s3">&gt;&lt;/</span><span class="s4">path</span><span class="s3">&gt;&lt;</span><span class="s4">path</span><span class="s5"> </span><span class="s2">fill-rule</span><span class="s3">=</span><span class="s1">"evenodd"</span><span class="s5"> </span><span class="s2">d</span><span class="s3">=</span><span class="s1">"M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"</span><span class="s5"> </span><span class="s2">clip-rule</span><span class="s3">=</span><span class="s1">"evenodd"</span><span class="s3">&gt;&lt;/</span><span class="s4">path</span><span class="s3">&gt;&lt;/</span><span class="s4">svg</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                            </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s6">"target-value"</span><span class="s3">&gt;</span><span class="s1">-</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white shadow-sm p-5 rounded-2xl border border-blue-50"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-xs text-slate-400 font-bold uppercase mb-2"</span><span class="s3">&gt;</span><span class="s1">رقم الإغلاق الفوري</span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"detail-phone"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-3xl font-mono font-black text-blue-700 tracking-widest"</span><span class="s3">&gt;</span><span class="s5">-</span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">                            </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"space-y-12"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">h4</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-xl font-bold text-slate-900 mb-4 flex items-center"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                        </span></span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"w-3 h-3 bg-blue-600 rounded-full ml-3 animate-pulse"</span><span class="s3">&gt;&lt;/</span><span class="s4">span</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>الهدف الاستراتيجي للنمو</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s4">h4</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"detail-focus"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-slate-700 leading-relaxed text-xl p-6 bg-white rounded-2xl border-r-8 border-blue-600 shadow-inner"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span>يرجى اختيار العضو لاستعراض مهامه الهجومية.</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">h4</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-xl font-bold text-slate-900 mb-6"</span><span class="s3">&gt;</span><span class="s1">قائمة تكتيكات الإغلاق</span><span class="s3">&lt;/</span><span class="s4">h4</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;</span><span class="s4">ul</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"detail-tasks"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 md:grid-cols-2 gap-4"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                        </span></span><span class="s11">&lt;!-- Tasks --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                    </span></span><span class="s3">&lt;/</span><span class="s4">ul</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">section</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Analytics Section --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">section</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"analytics-section"</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-[3rem] shadow-xl border border-slate-200 p-12 overflow-hidden relative"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mb-16 relative z-10 text-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-4xl font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s1">توزيع الحصص الربحية (Target Distribution)</span><span class="s3">&lt;/</span><span class="s4">h2</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mt-4 text-slate-600 text-lg max-w-2xl mx-auto"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>مستهدفات شهرية بإجمالي 11,000$ موزعة على محركات البيع.</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"grid grid-cols-1 lg:grid-cols-2 gap-20 relative z-10"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col items-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-2xl font-bold mb-8 text-slate-800"</span><span class="s3">&gt;</span><span class="s1">توزيع المستهدف المالي ($)</span><span class="s3">&lt;/</span><span class="s4">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"chart-container"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s4">canvas</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s6">"targetChart"</span><span class="s3">&gt;&lt;/</span><span class="s4">canvas</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"flex flex-col items-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">h3</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-2xl font-bold mb-8 text-slate-800"</span><span class="s3">&gt;</span><span class="s1">ثقل الأنشطة الربحية</span><span class="s3">&lt;/</span><span class="s4">h3</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"chart-container"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s4">canvas</span><span class="s1"> </span><span class="s2">id</span><span class="s3">=</span><span class="s6">"focusChart"</span><span class="s3">&gt;&lt;/</span><span class="s4">canvas</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">section</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s1">&lt;!-- Contact Section --&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">section</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"contact-section"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"mb-8 flex justify-between items-center"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">h2</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-3xl font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s1">دليل التواصل التنفيذي</span><span class="s3">&lt;/</span><span class="s4">h2</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-blue-600 font-bold bg-blue-50 px-4 py-2 rounded-xl text-sm"</span><span class="s3">&gt;</span><span class="s5">سرعة الاستجابة مطلوبة</span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-white rounded-3xl shadow-lg border border-slate-200 overflow-hidden"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"overflow-x-auto"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;</span><span class="s4">table</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"min-w-full divide-y divide-slate-200 text-right"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s4">thead</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"bg-slate-50"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;</span><span class="s4">tr</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">th</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-8 py-5 text-sm font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s5">المسؤول</span><span class="s3">&lt;/</span><span class="s4">th</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">th</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"px-8 py-5 text-sm font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s1">التخصص البيعي</span><span class="s3">&lt;/</span><span class="s4">th</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">th</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"px-8 py-5 text-sm font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s5">رقم الهاتف</span><span class="s3">&lt;/</span><span class="s4">th</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                                </span></span><span class="s3">&lt;</span><span class="s4">th</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"px-8 py-5 text-sm font-black text-slate-900"</span><span class="s3">&gt;</span><span class="s1">المستهدف ($)</span><span class="s3">&lt;/</span><span class="s4">th</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s3">&lt;/</span><span class="s4">tr</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s4">thead</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;</span><span class="s4">tbody</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"divide-y divide-slate-200"</span><span class="s5"> </span><span class="s2">id</span><span class="s3">=</span><span class="s1">"contact-table-body"</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s11">&lt;!-- Injected --&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span></span><span class="s3">&lt;/</span><span class="s4">tbody</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span></span><span class="s3">&lt;/</span><span class="s4">table</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">section</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s4">main</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s4">footer</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"bg-slate-900 text-white py-12 border-t-4 border-blue-600"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"max-w-7xl mx-auto px-4 text-center"</span><span class="s3">&gt;</span></p>
-<p class="p2"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">div</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-2xl font-black mb-2"</span><span class="s3">&gt;</span><span class="s5">منظومة PROFIT MAX </span><span class="s3">&lt;</span><span class="s4">span</span><span class="s5"> </span><span class="s2">class</span><span class="s3">=</span><span class="s1">"text-blue-500"</span><span class="s3">&gt;</span><span class="s5">2026</span><span class="s3">&lt;/</span><span class="s4">span</span><span class="s3">&gt;&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s3">&lt;</span><span class="s4">p</span><span class="s1"> </span><span class="s2">class</span><span class="s3">=</span><span class="s6">"text-slate-500"</span><span class="s3">&gt;</span><span class="s1">هيكل المبيعات الاستراتيجي المطور - نحو أرقام قياسية.</span><span class="s3">&lt;/</span><span class="s4">p</span><span class="s3">&gt;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s3">&lt;/</span><span class="s4">div</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">footer</span><span class="s3">&gt;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">        </span></span><span class="s12">const</span><span class="s5"> commonTask = </span><span class="s1">"بناء بروفيلات احترافية وقسم (About) والكتالوج والحالة لكل رقم ومنصة تواصل لزيادة الموثوقية."</span><span class="s5">;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">const</span><span class="s1"> teamData = [</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>id: </span><span class="s13">1</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>name: </span><span class="s7">"أ/ محمد إبراهيم"</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>role: </span><span class="s1">"قائد التحويل البيعي وإغلاق الصفقات الكبرى"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>phone: </span><span class="s7">"01110233325"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>target: </span><span class="s13">4000</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>focusText: </span><span class="s1">"تحقيق أعلى نسبة مبيعات من زوار الموقع الرسمي، وزيادة مصداقية العملاء من خلال حل مشاكل منسقي التسويق."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tasks: [</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"تحويل 40% من استفسارات الموقع إلى صفقات مؤكدة (Closing)."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"زيادة مصداقية العملاء وتأكيد حالة منسقين التسويق عند سؤال العميل."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"اكتشاف مشاكل المسوقين عند سؤال العميل والعمل الفوري على حلها."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"ابتكار عروض 'إعادة البيع' الفورية للعملاء القدامى بمعدل أسبوعي."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>commonTask</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>categoryWeights: { sales: </span><span class="s13">8</span><span class="s1">, support: </span><span class="s13">2</span><span class="s1">, ops: </span><span class="s13">1</span><span class="s1">, analysis: </span><span class="s13">1</span><span class="s1"> }</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>id: </span><span class="s13">2</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>name: </span><span class="s7">"مسؤول (ADS)"</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>role: </span><span class="s1">"صياد الفرص البيعية (Ads Closing)"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>phone: </span><span class="s7">"01103318330"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>target: </span><span class="s13">3000</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>focusText: </span><span class="s1">"اقتناص العملاء من الحملات الإعلانية وإغلاق البيع من مرحلة التواصل الأولى عبر الهاتف."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tasks: [</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"القدرة الاحترافية على الإغلاق (Closing) من مرحلة التواصل الأولى."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"تفعيل قنوات الاتصال الهاتفية كأداة أساسية لإتمام البيع وتأكيد الجدية."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"فلترة العملاء 'الساخنين' وتوجيههم للدفع الفوري."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"رفع معدل البيع المتقاطع (Cross-selling) لكل عميل جديد قادم من الإعلان."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>commonTask</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>categoryWeights: { sales: </span><span class="s13">7</span><span class="s1">, support: </span><span class="s13">1</span><span class="s1">, ops: </span><span class="s13">1</span><span class="s1">, analysis: </span><span class="s13">3</span><span class="s1"> }</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>id: </span><span class="s13">3</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>name: </span><span class="s7">"أ/ إسلام"</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>role: </span><span class="s1">"مدير العمليات البيعية والتحصيل الجاري"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>phone: </span><span class="s7">"0110562556"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>target: </span><span class="s13">1000</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>focusText: </span><span class="s1">"ضمان تحصيل الإيرادات وتحويل النماذج المهملة إلى فرص بيع حقيقية مع بناء هوية رقمية موثوقة."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tasks: [</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"ربط التحصيل بفرص 'البيع المتجدد' (Upselling) أثناء المكالمة."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"تنشيط نماذج العملاء القدامى (Forms) بعروض خصم حصرية للعودة."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"فلترة قوائم العملاء المحتملين وتصنيفهم حسب 'القدرة الشرائية'."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>commonTask</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>categoryWeights: { sales: </span><span class="s13">5</span><span class="s1">, support: </span><span class="s13">1</span><span class="s1">, ops: </span><span class="s13">4</span><span class="s1">, analysis: </span><span class="s13">2</span><span class="s1"> }</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>id: </span><span class="s13">4</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>name: </span><span class="s7">"مسؤول (Spreading)"</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>role: </span><span class="s1">"محلل انتشار المبيعات (Market Expansion)"</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>phone: </span><span class="s7">"0100375389"</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>target: </span><span class="s13">3000</span><span class="s1">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>focusText: </span><span class="s1">"فتح أسواق جديدة واقتناص عملاء من حملات الانتشار العام مع تعزيز حضور المنصات."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>tasks: [</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"تحويل أرقام حملات الانتشار إلى 'عملاء محتملين' (Leads) جاهزين للبيع."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"اكتشاف الاهتمامات الجديدة للعملاء وتوجيهها لخطوط إنتاج مربحة."</span><span class="s5">,</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span></span><span class="s1">"تصفية وفرز البيانات الضخمة (Big Data) للوصول لنخبة المشترين."</span><span class="s5">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>commonTask</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>categoryWeights: { sales: </span><span class="s13">5</span><span class="s1">, support: </span><span class="s13">2</span><span class="s1">, ops: </span><span class="s13">2</span><span class="s1">, analysis: </span><span class="s13">5</span><span class="s1"> }</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>];</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">let</span><span class="s1"> selectedId = </span><span class="s13">1</span><span class="s1">;</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">function</span><span class="s1"> init() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>renderCards();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>updateDetail(selectedId);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>renderTable();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>renderCharts();</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">function</span><span class="s1"> renderCards() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">const</span><span class="s1"> container = document.getElementById(</span><span class="s7">'cards-container'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>container.innerHTML = </span><span class="s7">''</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>teamData.forEach(m =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">const</span><span class="s1"> active = m.id === selectedId;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span></span><span class="s12">const</span><span class="s1"> div = document.createElement(</span><span class="s7">'div'</span><span class="s1">);</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                </span>div.className = </span><span class="s1">`p-6 rounded-3xl cursor-pointer transition-all duration-300 card-hover </span><span class="s5">${active ? </span><span class="s1">'active-card shadow-xl ring-2 ring-blue-500'</span><span class="s5"> : </span><span class="s1">'bg-white shadow-sm border border-slate-100 hover:border-blue-200'</span><span class="s5">}</span><span class="s1">`</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>div.onclick = () =&gt; {<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>selectedId = m.id;<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>renderCards();<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>updateDetail(m.id);<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>};</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>div.innerHTML = </span><span class="s7">`</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;div class="flex justify-between items-center"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;h3 class="text-xl font-black text-slate-900"&gt;</span><span class="s5">${m.name}</span><span class="s1">&lt;/h3&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;span class="text-xs font-bold text-green-600"&gt;المستهدف: </span><span class="s14">$</span><span class="s5">${m.target}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="</span><span class="s5">${active ? </span><span class="s1">'bg-blue-600 text-white'</span><span class="s5"> : </span><span class="s1">'bg-slate-100 text-slate-400'</span><span class="s5">}</span><span class="s1"> w-10 h-10 rounded-2xl flex items-center justify-center font-black"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s5">${m.id}</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/div&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span>`</span><span class="s5">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>container.appendChild(div);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">function</span><span class="s1"> updateDetail(id) {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">const</span><span class="s1"> m = teamData.find(x =&gt; x.id === id);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">const</span><span class="s1"> panel = document.getElementById(</span><span class="s7">'detail-panel'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>panel.style.opacity = </span><span class="s7">'0'</span><span class="s1">;</span></p>
-<p class="p7"><span class="s1"><span class="Apple-converted-space">            </span></span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>setTimeout(() =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'detail-name'</span><span class="s1">).textContent = m.name;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'detail-role'</span><span class="s1">).textContent = m.role;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'target-value'</span><span class="s1">).textContent = </span><span class="s7">"Target: $"</span><span class="s1"> + m.target;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'detail-phone'</span><span class="s1">).textContent = m.phone;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'detail-focus'</span><span class="s1">).textContent = m.focusText;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById(</span><span class="s7">'detail-tasks'</span><span class="s1">).innerHTML = m.tasks.map(t =&gt; </span><span class="s7">`</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;li class="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm flex items-start gap-4 hover:border-blue-500 transition-colors"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="bg-blue-600 text-white p-1 rounded-lg mt-1"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                            </span>&lt;svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"&gt;&lt;path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"&gt;&lt;/path&gt;&lt;/svg&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/div&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;span class="text-slate-800 font-bold leading-tight"&gt;</span><span class="s5">${t}</span><span class="s1">&lt;/span&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/li&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span>`</span><span class="s5">).join(</span><span class="s1">''</span><span class="s5">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>panel.style.opacity = </span><span class="s7">'1'</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>}, </span><span class="s13">150</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">function</span><span class="s1"> renderTable() {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">const</span><span class="s1"> tableBody = document.getElementById(</span><span class="s7">'contact-table-body'</span><span class="s1">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>tableBody.innerHTML = teamData.map(m =&gt; </span><span class="s7">`</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span>&lt;tr class="hover:bg-blue-50/50 transition-colors"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;td class="px-8 py-6"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;div class="font-black text-slate-900"&gt;</span><span class="s5">${m.name}</span><span class="s1">&lt;/div&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/td&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;td class="px-8 py-6 text-sm text-slate-600 font-bold"&gt;</span><span class="s5">${m.focusText.substring(</span><span class="s13">0</span><span class="s5">, </span><span class="s13">60</span><span class="s5">)}</span><span class="s1">...&lt;/td&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;td class="px-8 py-6 font-mono text-blue-700 font-black text-lg"&gt;</span><span class="s5">${m.phone}</span><span class="s1">&lt;/td&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;td class="px-8 py-6"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;span class="px-3 py-1 rounded-full text-md font-black bg-green-100 text-green-800"&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                            </span></span><span class="s14">$</span><span class="s5">${m.target}</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                        </span>&lt;/span&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                    </span>&lt;/td&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">                </span>&lt;/tr&gt;</span></p>
-<p class="p9"><span class="s1"><span class="Apple-converted-space">            </span>`</span><span class="s5">).join(</span><span class="s1">''</span><span class="s5">);</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span></span><span class="s12">function</span><span class="s1"> renderCharts() {</span></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s1">// Target Chart</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">new</span><span class="s1"> </span><span class="s15">Chart</span><span class="s1">(document.getElementById(</span><span class="s7">'targetChart'</span><span class="s1">), {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>type: </span><span class="s7">'bar'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>labels: teamData.map(m =&gt; m.name.split(</span><span class="s7">' '</span><span class="s1">)[</span><span class="s13">1</span><span class="s1">] || m.name),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>label: </span><span class="s7">'المستهدف المالي ($)'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>data: teamData.map(m =&gt; m.target),</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>backgroundColor: </span><span class="s7">'#1d4ed8'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>borderRadius: </span><span class="s13">12</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}]</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: </span><span class="s12">true</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: </span><span class="s12">false</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>scales: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>y: { beginAtZero: </span><span class="s12">true</span><span class="s1">, grid: { color: </span><span class="s7">'#f1f5f9'</span><span class="s1"> } },</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>x: { grid: { display: </span><span class="s12">false</span><span class="s1"> } }</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p8"><span class="s5"><span class="Apple-converted-space">            </span></span><span class="s1">// Focus Weights</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">let</span><span class="s1"> s = </span><span class="s13">0</span><span class="s1">, sup = </span><span class="s13">0</span><span class="s1">, o = </span><span class="s13">0</span><span class="s1">, a = </span><span class="s13">0</span><span class="s1">;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>teamData.forEach(m =&gt; {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>s += m.categoryWeights.sales;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>sup += m.categoryWeights.support;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>o += m.categoryWeights.ops;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>a += m.categoryWeights.analysis;</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span></span><span class="s12">new</span><span class="s1"> </span><span class="s15">Chart</span><span class="s1">(document.getElementById(</span><span class="s7">'focusChart'</span><span class="s1">), {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>type: </span><span class="s7">'doughnut'</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>data: {</span></p>
-<p class="p9"><span class="s5"><span class="Apple-converted-space">                    </span>labels: [</span><span class="s1">'المبيعات المباشرة'</span><span class="s5">, </span><span class="s1">'دعم العملاء'</span><span class="s5">, </span><span class="s1">'العمليات'</span><span class="s5">, </span><span class="s1">'التحليل'</span><span class="s5">],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>datasets: [{</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>data: [s, sup, o, a],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>backgroundColor: [</span><span class="s7">'#1d4ed8'</span><span class="s1">, </span><span class="s7">'#fbbf24'</span><span class="s1">, </span><span class="s7">'#10b981'</span><span class="s1">, </span><span class="s7">'#6366f1'</span><span class="s1">],</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>borderWidth: </span><span class="s13">2</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>borderColor: </span><span class="s7">'#ffffff'</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}]</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>},</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>options: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>responsive: </span><span class="s12">true</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>maintainAspectRatio: </span><span class="s12">false</span><span class="s1">,</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>plugins: {</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                        </span>legend: { position: </span><span class="s7">'bottom'</span><span class="s1">, labels: { font: { family: </span><span class="s7">'Tajawal'</span><span class="s1">, weight: </span><span class="s7">'bold'</span><span class="s1"> } } }</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                    </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">                </span>}</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p7"><span class="s10"></span><br></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>window.scrollToSection = id =&gt; document.getElementById(id).scrollIntoView({ behavior: </span><span class="s7">'smooth'</span><span class="s1"> });</span></p>
-<p class="p5"><span class="s1"><span class="Apple-converted-space">        </span>document.addEventListener(</span><span class="s7">'DOMContentLoaded'</span><span class="s1">, init);</span></p>
-<p class="p3"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s3">&lt;/</span><span class="s1">script</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">body</span><span class="s3">&gt;</span></p>
-<p class="p3"><span class="s3">&lt;/</span><span class="s1">html</span><span class="s3">&gt;</span></p>
+<body class="text-slate-800 leading-relaxed">
+
+    <!-- Navigation -->
+    <nav class="bg-white/80 backdrop-blur-md shadow-sm border-b border-blue-100 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 sales-gradient rounded-xl flex items-center justify-center text-white font-bold ml-3 shadow-lg shadow-blue-200">P</div>
+                    <span class="text-2xl font-black text-blue-700 tracking-tight">إدارة التدفقات والأرباح <span class="text-slate-400 text-sm font-normal hidden sm:inline">| PROFIT MAX 2026</span></span>
+                </div>
+                <div class="hidden lg:flex items-center space-x-8 space-x-reverse">
+                    <a href="#team-section" class="text-slate-600 hover:text-blue-700 text-sm font-bold transition-colors">محركات البيع</a>
+                    <a href="#analytics-section" class="text-slate-600 hover:text-blue-700 text-sm font-bold transition-colors">مؤشرات الأداء</a>
+                    <a href="#contact-section" class="text-slate-600 hover:text-blue-700 text-sm font-bold transition-colors">قنوات الاتصال</a>
+                    <button class="bg-blue-600 text-white px-6 py-2.5 rounded-xl text-sm font-bold hover:bg-blue-700 transition-all shadow-md">لوحة التحكم</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white border-b border-slate-100 overflow-hidden relative">
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute -top-24 -right-24 w-96 h-96 bg-blue-600 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-600 rounded-full blur-3xl"></div>
+        </div>
+        <div class="max-w-7xl mx-auto py-24 px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <span class="inline-block px-4 py-1.5 mb-6 text-sm font-bold text-blue-600 bg-blue-50 rounded-full tracking-wider uppercase">الإصدار التنفيذي 2026</span>
+            <h1 class="text-5xl font-black text-slate-900 sm:text-6xl lg:text-7xl mb-8 leading-tight">
+                منظومة <span class="text-blue-600">الإغلاق البيعي</span> <br>والأرباح الاستراتيجية
+            </h1>
+            <p class="mt-5 max-w-3xl mx-auto text-xl text-slate-500 font-medium leading-relaxed">
+                تحويل كل نقطة تماس مع العميل إلى فرصة استثمارية حقيقية. تم تصميم هذه المنظومة لتعظيم العائد من خلال توزيع الأدوار القائم على النتائج المالية المباشرة وتأكيد الموثوقية.
+            </p>
+            <div class="mt-12 flex flex-col sm:flex-row justify-center gap-6 items-center">
+                <div class="inline-flex items-center px-8 py-4 rounded-2xl text-xl font-black text-white sales-gradient shadow-xl shadow-blue-200">
+                    المستهدف السنوي: $132,000+
+                </div>
+                <div class="flex items-center gap-3 text-slate-600 font-bold">
+                    <span class="flex h-3 w-3 rounded-full bg-green-500 animate-ping"></span>
+                    النظام يعمل بكامل طاقته
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 space-y-32">
+
+        <!-- Team & Details Section -->
+        <section id="team-section">
+            <div class="flex flex-col md:flex-row justify-between items-start mb-16 gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="text-4xl font-black text-slate-900 mb-4 italic">هيكل القوة الضاربة</h2>
+                    <p class="text-slate-500 text-lg">توزيع استراتيجي للمسؤوليات بناءً على "تارجت" مالي محدد لكل دور وظيفي.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <!-- Sidebar Cards -->
+                <div class="lg:col-span-4 space-y-5" id="cards-container">
+                    <!-- JS Injected Cards -->
+                </div>
+
+                <!-- Central Detail View -->
+                <div class="lg:col-span-8">
+                    <div id="detail-panel" class="bg-white rounded-[2.5rem] shadow-2xl shadow-slate-200 border border-slate-100 overflow-hidden transition-all duration-500 opacity-0 transform translate-y-4">
+                        <div class="p-10 lg:p-14">
+                            <!-- Header Info -->
+                            <div class="flex flex-col md:flex-row justify-between items-start mb-12 gap-8 border-b border-slate-100 pb-10">
+                                <div class="space-y-4">
+                                    <h3 id="detail-name" class="text-5xl font-black text-slate-900 tracking-tight">-</h3>
+                                    <div class="flex flex-wrap gap-3 items-center">
+                                        <p id="detail-role" class="text-blue-600 font-bold text-xl">-</p>
+                                        <div id="detail-target-badge" class="target-badge px-5 py-1.5 rounded-full text-sm font-black flex items-center gap-2">
+                                            <span id="target-value">-</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="bg-slate-50 p-6 rounded-[2rem] border border-slate-100 min-w-[240px]">
+                                    <p class="text-[10px] text-slate-400 font-black uppercase tracking-widest mb-3">رقم الإغلاق المباشر</p>
+                                    <p id="detail-phone" class="text-3xl font-mono font-black text-blue-700 tracking-tighter">-</p>
+                                </div>
+                            </div>
+                            
+                            <!-- Detailed Content -->
+                            <div class="grid grid-cols-1 gap-12">
+                                <div class="bg-blue-50/30 p-8 rounded-3xl border-r-8 border-blue-600">
+                                    <h4 class="text-sm font-black text-blue-600 uppercase tracking-widest mb-4">الهدف الاستراتيجي</h4>
+                                    <p id="detail-focus" class="text-slate-700 text-2xl font-bold leading-snug">
+                                        اختر عضواً لبدء عرض البيانات.
+                                    </p>
+                                </div>
+
+                                <div class="space-y-6">
+                                    <h4 class="text-xl font-black text-slate-900 flex items-center">
+                                        تكتيكات التنفيذ اليومية
+                                        <span class="mr-4 h-1 flex-1 bg-slate-100 rounded-full"></span>
+                                    </h4>
+                                    <ul id="detail-tasks" class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                                        <!-- JS Injected Tasks -->
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Analytics Dashboard -->
+        <section id="analytics-section" class="bg-slate-900 rounded-[4rem] p-12 lg:p-20 text-white overflow-hidden relative">
+            <div class="absolute top-0 right-0 w-full h-full opacity-10 pointer-events-none">
+                <svg width="100%" height="100%"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(#grid)" /></svg>
+            </div>
+
+            <div class="text-center mb-20 relative z-10">
+                <h2 class="text-4xl font-black mb-6">مؤشرات الربحية والتوزيع</h2>
+                <p class="text-slate-400 text-lg max-w-2xl mx-auto">تحليل التوزيع العادل لمستهدفات الإغلاق الشهري بين محركات البيع الأربعة.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 relative z-10">
+                <div class="bg-white/5 backdrop-blur-md p-10 rounded-[3rem] border border-white/10">
+                    <h3 class="text-xl font-bold mb-10 text-center text-blue-400">حصة المستهدف المالي بالدولار</h3>
+                    <div class="chart-container">
+                        <canvas id="targetChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white/5 backdrop-blur-md p-10 rounded-[3rem] border border-white/10">
+                    <h3 class="text-xl font-bold mb-10 text-center text-blue-400">ثقل الأنشطة التشغيلية</h3>
+                    <div class="chart-container">
+                        <canvas id="focusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Master Contact Table -->
+        <section id="contact-section">
+            <div class="flex justify-between items-end mb-10">
+                <div>
+                    <h2 class="text-4xl font-black text-slate-900">دليل التنفيذيين</h2>
+                    <p class="text-slate-500 mt-2 italic">البيانات الرسمية وقنوات الإغلاق المعتمدة</p>
+                </div>
+                <div class="bg-white shadow-sm px-6 py-3 rounded-2xl border border-slate-200 font-bold text-slate-600">
+                    إجمالي المستهدف: <span class="text-blue-600">$11,000 / شهرياً</span>
+                </div>
+            </div>
+            
+            <div class="bg-white rounded-[2.5rem] shadow-xl border border-slate-200 overflow-hidden">
+                <div class="overflow-x-auto">
+                    <table class="min-w-full divide-y divide-slate-100 text-right">
+                        <thead>
+                            <tr class="bg-slate-50/50">
+                                <th class="px-10 py-6 text-xs font-black text-slate-400 uppercase tracking-widest">المسؤول التنفيذي</th>
+                                <th class="px-10 py-6 text-xs font-black text-slate-400 uppercase tracking-widest">التوجه البيعي</th>
+                                <th class="px-10 py-6 text-xs font-black text-slate-400 uppercase tracking-widest">وسيلة الاتصال</th>
+                                <th class="px-10 py-6 text-xs font-black text-slate-400 uppercase tracking-widest">المستهدف الشهري</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-slate-100" id="contact-table-body">
+                            <!-- JS Injected Rows -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <div class="text-3xl font-black mb-4">PROFIT MAX <span class="text-blue-500">2026</span></div>
+            <p class="text-slate-500 max-w-lg mx-auto mb-12">هذه المنظومة ملكية فكرية لإدارة المبيعات الاستراتيجية، تهدف إلى بناء هيكل ربحي مستدام وقابل للتوسع.</p>
+            <div class="border-t border-white/10 pt-8 text-sm text-slate-600">
+                &copy; 2026 جميع الحقوق محفوظة - نظام الإغلاق المطور
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts Section -->
+    <script>
+        // Data Structure - Easy to edit for GitHub users
+        const config = {
+            currency: "$",
+            commonTask: "بناء بروفيلات احترافية وقسم (About) والكتالوج والحالة لكل رقم ومنصة تواصل لزيادة الموثوقية."
+        };
+
+        const teamData = [
+            {
+                id: 1,
+                name: "أ/ محمد إبراهيم",
+                role: "قائد التحويل وإغلاق الصفقات",
+                phone: "01110233325",
+                target: 4000,
+                focusText: "تحويل زوار الموقع لعملاء حقيقيين، وحل معوقات منسقي التسويق لضمان مصداقية العلامة التجارية.",
+                tasks: [
+                    "تحويل 40% من استفسارات الموقع إلى صفقات مدفوعة.",
+                    "تأكيد حالة المنسقين وبناء جسور الثقة عند سؤال العميل عن الهوية.",
+                    "اكتشاف فجوات التواصل لدى المسوقين وحلها فورياً لضمان عدم ضياع الفرص.",
+                    "تطوير عروض 'تنشيط البيع' للعملاء القدامى بخصومات حصرية.",
+                    config.commonTask
+                ],
+                weights: [85, 15, 5, 5] // Sales, Support, Ops, Analysis
+            },
+            {
+                id: 2,
+                name: "مسؤول (ADS)",
+                role: "إغلاق حملات الإعلانات المباشرة",
+                phone: "01103318330",
+                target: 3000,
+                focusText: "تحويل ضغط الحملات الإعلانية إلى تدفق مالي من خلال المكالمات الهاتفية الفورية والإغلاق المبكر.",
+                tasks: [
+                    "الاحتراف في 'الإغلاق من المكالمة الأولى' لتقليل دورة المبيعات.",
+                    "الاعتماد على التواصل الصوتي (الهاتف) كأسرع وسيلة لإقناع العميل المتردد.",
+                    "فلترة قوائم عملاء الإعلانات وتصنيفهم حسب الأهمية الشرائية.",
+                    "تطبيق تقنيات البيع المتقاطع لزيادة قيمة سلة المشتريات.",
+                    config.commonTask
+                ],
+                weights: [75, 10, 5, 10]
+            },
+            {
+                id: 3,
+                name: "أ/ إسلام",
+                role: "إدارة العمليات والتحصيل البيعي",
+                phone: "0110562556",
+                target: 1000,
+                focusText: "إدارة التدفق النقدي وتحويل النماذج المهملة (Forms) إلى فرص ربحية حقيقية.",
+                tasks: [
+                    "تحصيل المستحقات المتأخرة وربطها بفرص بيع جديدة (Upsell).",
+                    "تنشيط استمارات العملاء القدامى المهملة عبر واتساب.",
+                    "فرز قاعدة البيانات وتحديد فئات العملاء 'VIP'.",
+                    config.commonTask
+                ],
+                weights: [50, 10, 30, 10]
+            },
+            {
+                id: 4,
+                name: "مسؤول (Spreading)",
+                role: "محلل انتشار واقتناص الفرص",
+                phone: "0100375389",
+                target: 3000,
+                focusText: "فتح منافذ بيعية في الأسواق الجديدة من خلال تحليل بيانات حملات الانتشار العام.",
+                tasks: [
+                    "تحويل أرقام حملات الانتشار السريع إلى عملاء محتملين مؤهلين.",
+                    "توجيه الإدارة نحو المنتجات الأكثر طلباً بناءً على ردود أفعال الجمهور.",
+                    "بناء قاعدة بيانات ضخمة تدعم خطط التوسع في 2026.",
+                    config.commonTask
+                ],
+                weights: [60, 15, 10, 15]
+            }
+        ];
+
+        // State Management
+        let currentId = 1;
+
+        // UI Handlers
+        function init() {
+            renderCards();
+            updateDetail(currentId);
+            renderTable();
+            renderCharts();
+        }
+
+        function renderCards() {
+            const container = document.getElementById('cards-container');
+            container.innerHTML = teamData.map(m => `
+                <div onclick="selectMember(${m.id})" 
+                     class="p-6 rounded-[2rem] cursor-pointer card-hover ${m.id === currentId ? 'active-card' : 'bg-white border border-slate-100 shadow-sm'}">
+                    <div class="flex justify-between items-center">
+                        <div class="space-y-1">
+                            <h3 class="text-xl font-black ${m.id === currentId ? 'text-blue-700' : 'text-slate-900'}">${m.name}</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="w-2 h-2 rounded-full bg-green-500"></span>
+                                <span class="text-xs font-black text-slate-400 uppercase tracking-tighter italic">Target: $${m.target}</span>
+                            </div>
+                        </div>
+                        <div class="w-12 h-12 rounded-2xl flex items-center justify-center text-lg font-black ${m.id === currentId ? 'bg-blue-600 text-white' : 'bg-slate-50 text-slate-300'}">
+                            0${m.id}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function selectMember(id) {
+            currentId = id;
+            renderCards();
+            updateDetail(id);
+        }
+
+        function updateDetail(id) {
+            const m = teamData.find(x => x.id === id);
+            const panel = document.getElementById('detail-panel');
+            
+            panel.classList.remove('opacity-100', 'translate-y-0');
+            panel.classList.add('opacity-0', 'translate-y-4');
+            
+            setTimeout(() => {
+                document.getElementById('detail-name').textContent = m.name;
+                document.getElementById('detail-role').textContent = m.role;
+                document.getElementById('target-value').textContent = `المستهدف: $${m.target}`;
+                document.getElementById('detail-phone').textContent = m.phone;
+                document.getElementById('detail-focus').textContent = m.focusText;
+                
+                document.getElementById('detail-tasks').innerHTML = m.tasks.map(t => `
+                    <li class="bg-slate-50 p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:bg-white transition-all flex items-start gap-4">
+                        <div class="bg-blue-600 text-white p-1 rounded-lg mt-1 shadow-md">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span class="text-slate-800 font-bold leading-tight">${t}</span>
+                    </li>
+                `).join('');
+                
+                panel.classList.remove('opacity-0', 'translate-y-4');
+                panel.classList.add('opacity-100', 'translate-y-0');
+            }, 300);
+        }
+
+        function renderTable() {
+            document.getElementById('contact-table-body').innerHTML = teamData.map(m => `
+                <tr class="hover:bg-blue-50/30 transition-colors">
+                    <td class="px-10 py-8 font-black text-slate-900">${m.name}</td>
+                    <td class="px-10 py-8 text-sm text-slate-500 font-medium">${m.focusText.substring(0, 70)}...</td>
+                    <td class="px-10 py-8 font-mono text-blue-700 font-black text-lg">${m.phone}</td>
+                    <td class="px-10 py-8">
+                        <span class="px-5 py-2 rounded-xl text-sm font-black bg-green-50 text-green-700 border border-green-100">
+                            $${m.target}
+                        </span>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function renderCharts() {
+            Chart.defaults.font.family = 'Tajawal';
+            Chart.defaults.color = '#94a3b8';
+
+            // Target Distribution Bar
+            new Chart(document.getElementById('targetChart'), {
+                type: 'bar',
+                data: {
+                    labels: teamData.map(m => m.name.split(' ')[1] || m.name),
+                    datasets: [{
+                        label: 'المستهدف ($)',
+                        data: teamData.map(m => m.target),
+                        backgroundColor: '#3b82f6',
+                        borderRadius: 15,
+                        hoverBackgroundColor: '#60a5fa'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { grid: { display: false } }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+
+            // Focus Weights Doughnut
+            let combinedWeights = [0, 0, 0, 0];
+            teamData.forEach(m => m.weights.forEach((w, i) => combinedWeights[i] += w));
+
+            new Chart(document.getElementById('focusChart'), {
+                type: 'doughnut',
+                data: {
+                    labels: ['مبيعات', 'دعم', 'عمليات', 'تحليل'],
+                    datasets: [{
+                        data: combinedWeights,
+                        backgroundColor: ['#1d4ed8', '#fbbf24', '#10b981', '#6366f1'],
+                        borderWidth: 0,
+                        hoverOffset: 20
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: { position: 'bottom', labels: { padding: 20, font: { size: 14, weight: 'bold' } } }
+                    }
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
 </body>
 </html>
